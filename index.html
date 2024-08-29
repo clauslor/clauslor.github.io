@@ -12,9 +12,14 @@
         }
 
         .slideshow {
+            margin: 10px 10px 10px 10px;
             position: relative;
-            width: 80%;
-            height: 100vh;
+            width: 50%;
+            height: 50vh;
+            margin-top: 20px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            margin-left: 20px;
             background-color: black;
         }
 
@@ -61,27 +66,6 @@
             animation: fade 12s infinite 8s;
         }
 
-        div {
-            border: 1px solid;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        .w3-4 {
-            width: calc((100% / 4) * 3);
-            --width: calc((100% / 4) * 3);
-        }
-
-        .w1-2 {
-            width: calc(100% / 2);
-            --width: calc(100% / 2);
-        }
-
-        .w1-4 {
-            width: calc(100% / 4);
-            --width: calc(100% / 4);
-        }
-
         /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
             .slideshow {
@@ -94,19 +78,73 @@
                 height: 30vh;
             }
         }
+
+        /* Play/Pause Button */
+        .controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+        }
+
+        .controls button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
     <div class="slideshow">
-        <img src="image1.png" alt="Image 1" class="active">
-        <img loading="lazy" src="image2.png" alt="Image 2">
-        <img loading="lazy" src="image3.png" alt="Image 3">
+        <img src="image1.jpg" alt="Image 1" class="active">
+        <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3">
     </div>
-    <audio autoplay loop>
+    <div class="controls">
+        <button id="playPauseBtn">Pause</button>
+    </div>
+    <audio id="backgroundMusic" autoplay loop>
         <source src="background.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
+    <script>
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const images = document.querySelectorAll('.slideshow img');
+        let isPlaying = true;
+        let currentIndex = 0;
+        let interval;
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        function startSlideshow() {
+            interval = setInterval(showNextImage, 4000);
+        }
+
+        function pauseSlideshow() {
+            clearInterval(interval);
+        }
+
+        playPauseBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                pauseSlideshow();
+                backgroundMusic.pause();
+                playPauseBtn.textContent = 'Play';
+            } else {
+                startSlideshow();
+                backgroundMusic.play();
+                playPauseBtn.textContent = 'Pause';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        startSlideshow();
+    </script>
 </body>
 
 </html>
