@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,19 +9,11 @@
             margin: 0;
             overflow: hidden;
         }
-
         .slideshow {
-            margin: 10px 10px 10px 10px;
             position: relative;
-            width: 50%;
-            height: 66vh;
-            margin-top: 20px;
-            margin-right: 20px;
-            margin-bottom: 20px;
-            margin-left: 20px;
-            background-color: black;
+            width: 100%;
+            height: 100vh;
         }
-
         .slideshow img {
             position: absolute;
             width: 100%;
@@ -31,37 +22,21 @@
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
-
         .slideshow img.active {
             opacity: 1;
         }
-
         @keyframes fade {
-            0% {
-                opacity: 0;
-            }
-
-            20% {
-                opacity: 1;
-            }
-
-            80% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: 0;
-            }
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
         }
-
         .slideshow img:nth-child(1) {
             animation: fade 12s infinite;
         }
-
         .slideshow img:nth-child(2) {
             animation: fade 12s infinite 4s;
         }
-
         .slideshow img:nth-child(3) {
             animation: fade 12s infinite 8s;
         }
@@ -72,47 +47,37 @@
                 height: 50vh;
             }
         }
-
         @media (max-width: 576px) {
             .slideshow {
                 height: 30vh;
             }
         }
 
-        /* Play/Pause Button */
-        .controls {
+        /* Audio Controls */
+        .audio-controls {
             position: absolute;
-            top: 10px;
-            left: 10px;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 10;
-        }
-
-        .controls button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
         }
     </style>
 </head>
-
 <body>
     <div class="slideshow">
-        <img src="image1.jpg" alt="Image 1" class="active">
-        <img src="image2.jpg" alt="Image 2">
-        <img src="image3.jpg" alt="Image 3">
+        <img src="image1.png" alt="Image 1" class="active" loading="lazy">
+        <img src="image2.png" alt="Image 2" loading="lazy">
+        <img src="image3.png" alt="Image 3" loading="lazy">
     </div>
-    <div class="controls">
-        <button id="playPauseBtn">Play</button>
+    <div class="audio-controls">
+        <audio id="backgroundMusic" controls>
+            <source src="background.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
     </div>
-    <audio id="backgroundMusic" autoplay loop>
-        <source src="background.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
     <script>
-        const playPauseBtn = document.getElementById('playPauseBtn');
         const backgroundMusic = document.getElementById('backgroundMusic');
         const images = document.querySelectorAll('.slideshow img');
-        let isPlaying = true;
         let currentIndex = 0;
         let interval;
 
@@ -130,21 +95,16 @@
             clearInterval(interval);
         }
 
-        playPauseBtn.addEventListener('click', () => {
-            if (isPlaying) {
-                pauseSlideshow();
-                backgroundMusic.pause();
-                playPauseBtn.textContent = 'Play';
-            } else {
-                startSlideshow();
-                backgroundMusic.play();
-                playPauseBtn.textContent = 'Pause';
-            }
-            isPlaying = !isPlaying;
+        backgroundMusic.addEventListener('play', () => {
+            startSlideshow();
         });
 
+        backgroundMusic.addEventListener('pause', () => {
+            pauseSlideshow();
+        });
+
+        // Start the slideshow initially
         startSlideshow();
     </script>
 </body>
-
 </html>
