@@ -61,48 +61,6 @@
             transform: translateX(-50%);
             z-index: 10;
         }
-
-        /* Play/Pause Buttons */
-        .controls {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-        }
-        .controls button {
-            padding: 10px 20px;
-            margin: 0 5px;
-            font-size: 16px;
-        }
-
-        /* Progress Bar */
-        .progress-container {
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 10px;
-            background-color: #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        .progress-bar {
-            height: 100%;
-            background-color: #4caf50;
-            width: 0;
-        }
-
-        /* Time Display */
-        .time-display {
-            position: absolute;
-            bottom: 70px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 16px;
-            color: #fff;
-        }
     </style>
 </head>
 <body>
@@ -117,21 +75,9 @@
             Your browser does not support the audio element.
         </audio>
     </div>
-    <div class="controls">
-        <button id="playButton">Play</button>
-        <button id="pauseButton">Pause</button>
-    </div>
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
-    </div>
-    <div class="time-display" id="timeDisplay">0:00 / 0:00</div>
     <script>
         const backgroundMusic = document.getElementById('backgroundMusic');
         const images = document.querySelectorAll('.slideshow img');
-        const playButton = document.getElementById('playButton');
-        const pauseButton = document.getElementById('pauseButton');
-        const progressBar = document.getElementById('progressBar');
-        const timeDisplay = document.getElementById('timeDisplay');
         let currentIndex = 0;
         let interval;
 
@@ -149,36 +95,12 @@
             clearInterval(interval);
         }
 
-        function updateProgress() {
-            const duration = backgroundMusic.duration;
-            const currentTime = backgroundMusic.currentTime;
-            const progress = (currentTime / duration) * 100;
-            progressBar.style.width = progress + '%';
-
-            const currentMinutes = Math.floor(currentTime / 60);
-            const currentSeconds = Math.floor(currentTime % 60);
-            const totalMinutes = Math.floor(duration / 60);
-            const totalSeconds = Math.floor(duration % 60);
-
-            timeDisplay.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' : ''}${currentSeconds} / ${totalMinutes}:${totalSeconds < 10 ? '0' : ''}${totalSeconds}`;
-        }
-
         backgroundMusic.addEventListener('play', () => {
             startSlideshow();
         });
 
         backgroundMusic.addEventListener('pause', () => {
             pauseSlideshow();
-        });
-
-        backgroundMusic.addEventListener('timeupdate', updateProgress);
-
-        playButton.addEventListener('click', () => {
-            backgroundMusic.play();
-        });
-
-        pauseButton.addEventListener('click', () => {
-            backgroundMusic.pause();
         });
 
         // Start the slideshow initially
