@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +10,13 @@
             margin: 0;
             overflow: hidden;
         }
+
         .slideshow {
             position: relative;
             width: 100%;
             height: 100vh;
         }
+
         .slideshow img {
             position: absolute;
             max-width: 100%;
@@ -22,21 +25,37 @@
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
+
         .slideshow img.active {
             opacity: 1;
         }
+
         @keyframes fade {
-            0% { opacity: 0; }
-            20% { opacity: 1; }
-            80% { opacity: 1; }
-            100% { opacity: 0; }
+            0% {
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
         }
+
         .slideshow img:nth-child(1) {
             animation: fade 12s infinite;
         }
+
         .slideshow img:nth-child(2) {
             animation: fade 12s infinite 4s;
         }
+
         .slideshow img:nth-child(3) {
             animation: fade 12s infinite 8s;
         }
@@ -47,6 +66,7 @@
                 height: 50vh;
             }
         }
+
         @media (max-width: 576px) {
             .slideshow {
                 height: 30vh;
@@ -61,6 +81,7 @@
             transform: translateX(-50%);
             z-index: 10;
         }
+
         .audio-controls button {
             background-color: #fff;
             border: none;
@@ -69,11 +90,69 @@
         }
     </style>
 </head>
+
 <body>
     <div class="slideshow">
         <img src="image1.png" alt="Image 1" class="active" loading="lazy">
-        <img src="image2.png" alt="Image 2" loading="lazy">
-        <img src="image3.png" alt="Image 3" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image1-scaled.jpg" alt="Image 01" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image2-scaled.jpg" alt="Image 02" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image3-scaled.jpg" alt="Image 03" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image4-scaled.jpg" alt="Image 04" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image5-scaled.jpg" alt="Image 05" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image6-scaled.jpg" alt="Image 06" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image7-scaled.jpg" alt="Image 07" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image8-scaled.jpg" alt="Image 08" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image9-scaled.jpg" alt="Image 09" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image10-scaled.jpg" alt="Image 10" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image11-scaled.jpg" alt="Image 11" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image12-scaled.jpg" alt="Image 12" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image13-scaled.jpg" alt="Image 13" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image14-scaled.jpg" alt="Image 14" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image15-scaled.jpg" alt="Image 15" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image16-scaled.jpg" alt="Image 16" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image17-scaled.jpg" alt="Image 17" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image18-scaled.jpg" alt="Image 18" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image19-scaled.jpg" alt="Image 19" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image20-scaled.jpg" alt="Image 20" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image21-scaled.jpg" alt="Image 21" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image22-scaled.jpg" alt="Image 22" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image23-scaled.jpg" alt="Image 23" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image24-scaled.jpg" alt="Image 24" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image25-scaled.jpg" alt="Image 25" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image26-scaled.jpg" alt="Image 26" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image27-scaled.jpg" alt="Image 27" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image28-scaled.jpg" alt="Image 28" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image29-scaled.jpg" alt="Image 29" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image30-scaled.jpg" alt="Image 30" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image31-scaled.jpg" alt="Image 31" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image32-scaled.jpg" alt="Image 32" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image33-scaled.jpg" alt="Image 33" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image34-scaled.jpg" alt="Image 34" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image35-scaled.jpg" alt="Image 35" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image36-scaled.jpg" alt="Image 36" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image37-scaled.jpg" alt="Image 37" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image38-scaled.jpg" alt="Image 38" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image39-scaled.jpg" alt="Image 39" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image40-scaled.jpg" alt="Image 40" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image41-scaled.jpg" alt="Image 41" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image42-scaled.jpg" alt="Image 42" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image43-scaled.jpg" alt="Image 43" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image44-scaled.jpg" alt="Image 44" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image45-scaled.jpg" alt="Image 45" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image46-scaled.jpg" alt="Image 46" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image47-scaled.jpg" alt="Image 47" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image48-scaled.jpg" alt="Image 48" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image49-scaled.jpg" alt="Image 49" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image50-scaled.jpg" alt="Image 50" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image51-scaled.jpg" alt="Image 51" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image52-scaled.jpg" alt="Image 52" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image53-scaled.jpg" alt="Image 53" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image54-scaled.jpg" alt="Image 54" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image55-scaled.jpg" alt="Image 55" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image56-scaled.jpg" alt="Image 56" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image57-scaled.jpg" alt="Image 57" loading="lazy">
+        <img src="https://tianalorenz.de/wp-content/uploads/2024/08/image58-scaled.jpg" alt="Image 58" loading="lazy">
+
     </div>
     <div class="audio-controls">
         <button id="playButton">Play</button>
@@ -126,4 +205,5 @@
         });
     </script>
 </body>
+
 </html>
